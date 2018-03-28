@@ -1,0 +1,29 @@
+
+<html>
+  <head>
+    <title>S3 Frontend Example</title>
+  	<style>
+  		body {
+  			background: #e3ecfc;
+  		}
+      form, h1 {
+        text-align: center;
+      }
+  	</style>
+  </head>
+  <body>
+    <h1>S3 Frontend Example</h1>
+
+    <hr/>
+
+    <form>
+      <input type="button" onclick="alert('TODO')" value="Upload File" />
+    </form>
+
+    <hr/>
+
+    {{range $index, $element := .Files}}
+
+    {{end}}
+  </body>
+</html>

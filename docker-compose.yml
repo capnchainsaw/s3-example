@@ -1,0 +1,7 @@
+version: '2'
+services:
+    frontend:
+        build: .
+        image: s3-example
+        ports:
+            - "8080:8080"
