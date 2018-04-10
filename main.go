@@ -4,6 +4,7 @@ import (
   "html/template"
   "net/http"
 
+//"github.com/aws/aws-sdk-go/service/s3"
   "github.com/gorilla/mux"
   log "github.com/Sirupsen/logrus"
 )

@@ -24,14 +24,26 @@ First execute a bash process in the running service container.
 docker exec -it s3example_frontend_1 /bin/bash
 ```
 
+Then source the credentials.
+
+```
+source /etc/s3-aws-creds
+```
+
 ## Listing a directory
 
-TODO
+Most actions are similar to basic unix commands.
 
-## Uploading a File
+```
+aws s3 ls s3://capnchainsaw-test
+```
 
-TODO
+## Uploading and Downloading Files
 
-## Downloading a File
+You can copy to or from the buckets.
 
-TODO
+```
+aws s3 cp test.txt s3://capnchainsaw-test/test.txt
+
+aws s3 cp s3://capnchainsaw-test/test.txt test.txt
+```

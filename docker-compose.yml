@@ -3,5 +3,7 @@ services:
     frontend:
         build: .
         image: s3-example
+        volumes:
+            - ~/chainsaw-s3-aws-creds:/etc/s3-aws-creds
         ports:
             - "8080:8080"
