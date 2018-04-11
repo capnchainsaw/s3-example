@@ -41,9 +41,23 @@ func DisplayIndex(w http.ResponseWriter, r *http.Request) {
   t.Execute(w, indexGuts)
 }
 
+func UploadHandler(w http.ResponseWriter, r *http.Request) {
+  // Download file local from Upload
+  // TODO
+
+  // Copy to bucket
+  // TODO
+
+  // Delete local files
+  // TODO
+
+  DisplayIndex(w, r)
+}
+
 func main() {
   s3Mux := mux.NewRouter()
   s3Mux.HandleFunc("/", DisplayIndex).Methods("GET")
+  s3Mux.HandleFunc("/upload", UploadHandler).Methods("POST")
   http.Handle("/", s3Mux)
 
   http.ListenAndServe(":8080", nil)

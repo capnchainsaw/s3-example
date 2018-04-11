@@ -6,7 +6,7 @@
   		body {
   			background: #e3ecfc;
   		}
-      form, h1 {
+      form, h1, p {
         text-align: center;
       }
   	</style>
@@ -14,13 +14,10 @@
   <body>
     <h1>S3 Frontend Example</h1>
 
-    <hr/>
-
-    <form>
-      <input type="button" onclick="alert('TODO')" value="Upload File" />
+    <form action="/upload" method="POST">
+      <input type="file" name="s3xFile" id="s3xFile" />
+      <input type="submit" value="Upload File" />
     </form>
-
-    <hr/>
 
     {{range $index, $element := .Files}}
       <p>{{$element}}</p>
