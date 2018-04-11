@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source /etc/s3-aws-creds
+
+aws s3 "$@"

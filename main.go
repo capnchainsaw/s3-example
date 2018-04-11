@@ -1,10 +1,10 @@
 package main
 
 import (
+  "os/exec"
   "html/template"
   "net/http"
 
-//"github.com/aws/aws-sdk-go/service/s3"
   "github.com/gorilla/mux"
   log "github.com/Sirupsen/logrus"
 )
@@ -19,7 +19,16 @@ func DisplayIndex(w http.ResponseWriter, r *http.Request) {
   }
 
   // Query S3 for file list.
-  // TODO
+  out, err := exec.Command("/s3x","ls","s3://capnchainsaw-test").Output()
+  if err != nil {
+    log.WithFields(log.Fields{
+      "error":    err,
+    }).Error("Failed query files!")
+  } else {
+    listTxt := string(out)
+    // TODO split string
+    indexGuts.Files = append(indexGuts.Files, listTxt)
+  }
 
   // Populate template and display.
   t, err := template.ParseFiles("index.html")

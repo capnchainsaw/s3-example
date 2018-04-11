@@ -11,6 +11,8 @@ RUN apt-get update && \
 RUN pip install setuptools
 RUN pip install awscli --upgrade
 
+COPY s3x /s3x
+
 RUN mkdir -p $GOPATH/src/github.com/capnchainsaw/s3-example
 ADD . $GOPATH/src/github.com/capnchainsaw/s3-example
 WORKDIR $GOPATH/src/github.com/capnchainsaw/s3-example
